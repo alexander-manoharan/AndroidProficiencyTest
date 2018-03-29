@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidProficiencyTest</string>
+    <string name="json_baseurl">https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/</string>
 </resources>
