@@ -30,8 +30,12 @@ class RecyclerAdapter(private var rowItem: MutableList<MyModel.RowItem>) : Recyc
         return rowItem.count()
     }
 
+    fun getItemAt(position: Int) {
+
+    }
+
     // Custom Adapter for Recycler view to hold each row items.
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems (rowItem: MyModel.RowItem) {
             itemView.title.text = rowItem.title
