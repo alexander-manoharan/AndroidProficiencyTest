@@ -69,6 +69,7 @@ class MyPresenter(private val view: MyView, private val context: Context) {
             override fun onFailure(call: Call<MyModel.JSONRows>?, t: Throwable?) {
                 println("JSON data download failure")
                 Toast.makeText(context, "Connectivity to server lost", Toast.LENGTH_SHORT).show()
+                myView.onRefreshFailure()
             }
         })
     }

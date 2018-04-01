@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), MyView {
                 .build()
 
         var picasso = Picasso.Builder(this)
-                .downloader( OkHttp3Downloader(client))
+                .downloader(OkHttp3Downloader(client))
                 .build()
 
         Picasso.setSingletonInstance(picasso)
@@ -62,6 +62,10 @@ class MainActivity : AppCompatActivity(), MyView {
     }
 
     override fun onRefreshSuccess() {
+        swipeRefreshLayout.isRefreshing = false
+    }
+
+    override fun onRefreshFailure() {
         swipeRefreshLayout.isRefreshing = false
     }
 

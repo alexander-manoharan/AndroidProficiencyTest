@@ -11,6 +11,7 @@ import com.lxndr.android.androidproficiencytest.model.MyModel
 interface MyView {
     fun refreshView()
     fun onRefreshSuccess()
+    fun onRefreshFailure()
     fun updateTitle(title: String)
     fun setRowItems(rowItems: MutableList<MyModel.RowItem>)
 }
