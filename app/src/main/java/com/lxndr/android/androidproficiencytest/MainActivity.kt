@@ -37,15 +37,19 @@ class MainActivity : AppCompatActivity(), MyView {
             refreshView()
         }
 
-        val client = OkHttpClient.Builder()
-                .protocols(Collections.singletonList(Protocol.HTTP_1_1))
-                .build()
+        try {
+            val client = OkHttpClient.Builder()
+                    .protocols(Collections.singletonList(Protocol.HTTP_1_1))
+                    .build()
 
-        var picasso = Picasso.Builder(this)
-                .downloader(OkHttp3Downloader(client))
-                .build()
+            var picasso = Picasso.Builder(this)
+                    .downloader(OkHttp3Downloader(client))
+                    .build()
 
-        Picasso.setSingletonInstance(picasso)
+            Picasso.setSingletonInstance(picasso)
+        } catch (e: IllegalStateException) {
+            e.printStackTrace()
+        }
     }
 
     // Update Title bar after receiving JSON file
