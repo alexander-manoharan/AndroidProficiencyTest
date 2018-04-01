@@ -31,7 +31,7 @@ class MyModel {
             @Json(name = "imageHref") val image: String
     )
 
-    data class RowItem(val title: String, val description: String, val image: String) {
+    data class RowItem(val title: String?, val description: String?, val image: String?) {
         constructor(row : JSONRow) : this(row.title, row.description, row.image)
     }
 

@@ -4,10 +4,16 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.jakewharton.picasso.OkHttp3Downloader
 import com.lxndr.android.androidproficiencytest.R
 import com.lxndr.android.androidproficiencytest.model.MyModel
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_view_row_item.view.*
+import okhttp3.OkHttpClient
+import okhttp3.Protocol
+import java.util.*
 
 /**
  * Created by Alexander Manoharan on 3/30/2018.

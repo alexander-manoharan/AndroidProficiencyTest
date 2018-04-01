@@ -6,10 +6,15 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.jakewharton.picasso.OkHttp3Downloader
 import com.lxndr.android.androidproficiencytest.model.MyModel
 import com.lxndr.android.androidproficiencytest.presenter.MyPresenter
 import com.lxndr.android.androidproficiencytest.utils.RecyclerAdapter
 import com.lxndr.android.androidproficiencytest.view.MyView
+import com.squareup.picasso.Picasso
+import okhttp3.OkHttpClient
+import okhttp3.Protocol
+import java.util.*
 
 class MainActivity : AppCompatActivity(), MyView {
     private lateinit var linearLayoutManager : LinearLayoutManager
@@ -31,6 +36,16 @@ class MainActivity : AppCompatActivity(), MyView {
         swipeRefreshLayout.setOnRefreshListener {
             refreshView()
         }
+
+        val client = OkHttpClient.Builder()
+                .protocols(Collections.singletonList(Protocol.HTTP_1_1))
+                .build()
+
+        var picasso = Picasso.Builder(this)
+                .downloader( OkHttp3Downloader(client))
+                .build()
+
+        Picasso.setSingletonInstance(picasso)
     }
 
     // Update Title bar after receiving JSON file

@@ -51,12 +51,13 @@ class MyPresenter(private val view: MyView, private val context: Context) {
                     // Update Title from JSON data
                     myView.updateTitle(body.title)
                     for (i in body.rows) {
-                        if (i.title != null && i.description != null && i.image != null) {
-                            // Row item in JSON
-                            val rowItem: MyModel.RowItem = MyModel.RowItem(i)
-                            // Add the row entry in model store
-                            myModel.addRow(rowItem)
+                        if (i.title == null && i.description == null && i.image == null) {
+                            continue
                         }
+                            // Row item in JSON
+                        val rowItem: MyModel.RowItem = MyModel.RowItem(i)
+                        // Add the row entry in model store
+                        myModel.addRow(rowItem)
                     }
                 }
                 // Set the row items to our View
